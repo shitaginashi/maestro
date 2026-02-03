@@ -1,0 +1,6 @@
+*.mp3
+*.wav
+*.rar
+.DS_Store
+node_modules/
+bin/

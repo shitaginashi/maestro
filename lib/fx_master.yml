@@ -1,0 +1,15 @@
+# Test Template for Braiding Logic
+assets:
+  low_ping:
+    trigger_frequency: 440
+    label: "TRENT_MARKER_ALPHA"
+  mid_ping:
+    trigger_frequency: 880
+    label: "TRENT_MARKER_BETA"
+  high_ping:
+    trigger_frequency: 1760
+    label: "TRENT_MARKER_GAMMA"
+
+inventory_meta:
+  status: "latent_mapping"
+  source_root: "/mnt/forge/audio/mega/"
