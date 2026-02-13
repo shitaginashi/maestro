@@ -1,6 +1,10 @@
-*.mp3
+# Maestro RC1 - Local Data & Binary Ignore
+latent_library.npy
+*.yml
+*.xml
 *.wav
-*.rar
+__pycache__/
+*.blend
+*.blend1
 .DS_Store
-node_modules/
-bin/
+np/

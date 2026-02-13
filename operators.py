@@ -32,8 +32,9 @@ class MAESTRO_PT_Panel(bpy.types.Panel):
         layout = self.layout
         scene = context.scene
         
-        layout.operator("maestro.materialize", icon='NODE_INSERT')
-        layout.operator("maestro.swap_asset", icon='UV_SYNC_SELECTION')
+        # Updated icons for Blender 4.2
+        layout.operator("maestro.materialize", icon='ADD') 
+        layout.operator("maestro.swap_asset", icon='FILE_REFRESH')
         layout.prop(scene, "maestro_pass_sassy", text="Sassy Mode")
         layout.operator("maestro.export_xml", icon='EXPORT')
 
