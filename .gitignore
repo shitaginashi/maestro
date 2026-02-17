@@ -3,8 +3,10 @@ latent_library.npy
 *.yml
 *.xml
 *.wav
+*.mp3
+*.edl
+*.npy
 __pycache__/
 *.blend
 *.blend1
-.DS_Store
 np/
