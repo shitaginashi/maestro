@@ -70,3 +70,44 @@ Fingerprint Shorthand	Type	Acoustic Behavior	Asset Category
 4B0+0i→[0]	Static/Dry	Phase-locked, percussive, loopable.	Kick, Snare, Woodblock.
 680±f→[+1]	Dynamic/Wet	Phase-dispersive, evolving, directional.	Chime, Suckback, Cymbal Crash.
 Center±f→[0]	Atmospheric	High jitter but stationary/loopable.	Granular Pad, Radio Static.
+
+The 3-Axis Fingerprint Encoding
+
+We encode assets using a normalized float array [X,Y,Z], where each axis represents a specific sonic characteristic.
+Axis 1: Momentum (The "Riser" Profile)
+    Value Range: 0.0 to 1.0
+    Encoding: Measures the amplitude delta over time (the "slope").
+
+    What it means: * 0.0: Flat or instantaneous (a dry snare "hit").
+        1.0: Maximum exponential growth (a 4-bar tension riser).
+        Usage: Used to filter assets for the "Riser" phase of the audio complement.
+
+Axis 2: Impact Integrity (The "Hit" Profile)
+    Value Range: 0.0 to 1.0
+    Encoding: Calculated via peak-to-average power ratio (PAPR) at the start of the sample.
+
+    What it means:
+        0.0: Soft, atmospheric pad with no clear start.
+        1.0: High-transient, "glass-shattering" impact.
+        Usage: This directly matches the integrity metric in your spine.yml. High-integrity beats in the Spine demand assets with an Impact value ≈1.0.
+
+Axis 3: Spectral Gravity (The "Suckback" Profile)
+    Value Range: 0.0 to 1.0
+    Encoding: Based on the Centroid Frequency (the "brightness" or "darkness" of the sound).
+
+    What it means:
+        0.0: Sub-heavy, low-frequency rumble (The "Spanish Bass" Lane C).
+        1.0: High-frequency, piercing "whisp" or white noise.
+        Usage: Defines the "flavor" of the suckback. A value of 0.2 would be a deep, vacuum-like suckback, whereas 0.8 would be a sharp, metallic reverse-cymbal.
+
+The Matching Logic: Attraction vs. Repulsion
+In your SRD (Statistical Rarity Design), the engine doesn't just look for a "perfect" match. It calculates the Euclidean Distance between the Spine's requirement and the asset's fingerprint.
+Distance=(Xspine​−Xasset​)2+(Yspine​−Yasset​)2+(Zspine​−Zasset​)2​
+    Attraction: Assets with a distance <0.15 are "locked" for the Lane.
+    Repulsion: If an asset is too similar to one already placed in the 400-frame window, the engine "repels" it to prevent sonic repetitive fatigue, even if the rank is high.
+
+The Fingerprint Mapping by Lane
+Lane	Target Axis Focus	Audio Role	Ideal Fingerprint (Approx)
+A	Momentum (X)	Risers	[0.9,0.4,0.7]
+B	Impact (Y)	Main Hits	[0.2,0.9,0.5]
+C	Gravity (Z)	Suckbacks	[0.5,0.3,0.1]
