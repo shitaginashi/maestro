@@ -27,23 +27,19 @@ class MAESTRO_OT_AnalyzeSoundtrack(bpy.types.Operator):
     bl_idname = "maestro.analyze_soundtrack"
     bl_label = "Analyze Soundtrack"
     
-def execute(self, context):
-        from . import maestro_core
-        # Initialize the V3 Engine
-        engine = maestro_core.MaestroEngineV3() 
+    def execute(self, context):
+        # 1. Instantiate the Core we fixed
+        from .core import MaestroEngineV3
+        engine = MaestroEngineV3()
         
-        # 1. Materialize the VSE
-        success = engine.materialize_with_statistical_rarity()
-        
-        if success:
-            # 2. Export EDLs using the SAME instance
-            # Ensure this method exists in your MaestroEngineV3 class!
-            engine.export_to_edl() 
-            self.report({'INFO'}, "MAESTRO: V3.2 Timeline & EDLs Materialized")
+        # 2. Run the process
+        if engine.ingest_soundtrack():
+            engine.materialize_with_statistical_rarity()
+            self.report({'INFO'}, "Spine Materialized Successfully.")
+            return {'FINISHED'}
         else:
-            self.report({'ERROR'}, "MAESTRO: Materialization failed.")
-            
-        return {'FINISHED'}
+            self.report({'ERROR'}, "Soundtrack ingestion failed.")
+            return {'CANCELLED'}
 
 class MAESTRO_PT_MainPanel(bpy.types.Panel):
     bl_label = "Maestro V3"
