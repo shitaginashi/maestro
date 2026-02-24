@@ -87,14 +87,14 @@ The 72B Auditor shall prioritize the Vector Continuity of the edit to ensure a s
     Inertia Disdain: Direct transitions from High-Velocity motion to a dead Still are flagged as "Jarring."
     The Zoom-Ease Solution: To bridge a velocity gap, the Auditor shall mandate a Digital Zoom (In/Out) on the Still clip, using a "Ramp-down" ease to synthesize the lost momentum of the previous clip.
 
-8. Advanced Bridge Shots (The "Vodka-Grapefruit" Mix)
+8. Advanced Bridge Shots 以毒攻毒
 When the "Thorn" (small void) cannot be ignored, we hide our technique behind more technique.
 8.1 The Compound Resolve
     The Mirror-Zoom: Combine a Temporal Mirror (Ping-pong) with a slow Digital Zoom. The zoom masks the "reversal" of the ping-pong, creating a seamless, dream-like extension.
     The Burn-to-Bokeh: Transition a bridge shot by losing focus on the final frames (Gaussian/Bokeh blur) while fading to black or a color burnout. This creates an "Aesthetic Buffer" for the next clip.
     Duration Limits: A single technique is valid for ~2 seconds. A Compound Resolve (Zoom + Ping-pong + Burnout) is valid for up to 5 seconds.
 
-9. Audio-Visual Braiding (The Harmony)
+9. Audio-Visual Braiding 泰(The Harmony)hexigram 11
 If the "Ground" (Void) is too prominent, we use the Audio to reclaim the "Figure."
     The Pad/VO Injection: In long visual voids or low-velocity sections, the Auditor may request Audio Pads (drones/shimmer) or V/O (Voice-over) to maintain tension.
     The Lip-Sync Suggestion: If a high-utility clip features a person with low velocity, the 72B may suggest a "Lip-Sync/Dialogue" overlay to justify the static nature of the shot.
